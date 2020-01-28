@@ -45,10 +45,10 @@ public class ArtistService {
     }
 
     private void validateArtist(Artist artist) {
-        if (StringUtils.isEmpty(artist.getFirstname())) {
+        if (artist.getFirstname() == null || StringUtils.isEmpty(artist.getFirstname())) {
             throw new ValidationException("missing firstname");
         }
-        if (StringUtils.isEmpty(artist.getLastname())) {
+        if (artist.getLastname() == null || StringUtils.isEmpty(artist.getLastname())) {
             throw new ValidationException("missing lastname");
         }
     }

@@ -42,11 +42,11 @@ public class AlbumService {
     }
 
     private void validateAlbum(Album album) {
-        if (StringUtils.isEmpty(album.getTitle())) {
+        if (album.getTitle() == null || StringUtils.isEmpty(album.getTitle())) {
             throw new ValidationException("missing title");
         }
-        if (StringUtils.isEmpty(album.getCount())) {
-            throw new ValidationException("missing parts");
+        if (album.getCount() < 0) {
+            throw new ValidationException("count is too low");
         }
     }
 }
